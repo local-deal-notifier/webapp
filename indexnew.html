@@ -49,34 +49,60 @@ p {
 </style>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
-<script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js'></script>
-<script type="text/javascript">
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script><script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js"></script>
 
-var chatRef = new Firebase('https://hackwestern3-2ebd2.firebaseio.com')
-var auth = new FirebaseSimpleLogin(chatRef, function(error, user){
-	if(error){
-		console.log(error);
-	}else if (user){
-		console.log('User ID: ' + user.uid);
-	}else{
-		console.log("not logged in");
-	}
-});
-$(function() {
-	$("#fblogin").click(function(){
-		auth.login('facebook',{
-		rememberMe: true,
-		scope: 'email,user_likes'
+<!-- Leave out Storage -->
+<!-- <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-storage.js"></script> -->
+<script>
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "AIzaSyBxjPLJ51q942Nl9gSVrNV6byForpYcfjo",
+    authDomain: "hackwestern3-2ebd2.firebaseapp.com",
+    databaseURL: "https://hackwestern3-2ebd2.firebaseio.com",
+    storageBucket: "gs://hackwestern3-2ebd2.appspot.com"
+  };
+  firebase.initializeApp(config);
+  var provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('user_birthday');
+  provider.setCustomParameters({
+  	'display': 'popup'
+	});
+
+</script>
+
+<script>
+	$(document).ready(function(){
+		$("#fblogin").click(function(){
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+			  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+			  var token = result.credential.accessToken;
+			  // The signed-in user info.
+			  var user = result.user;
+			  console.log(user);
+			  // ...
+			}).catch(function(error) {
+			  // Handle Errors here.
+			  var errorCode = error.code;
+			  var errorMessage = error.message;
+			  // The email of the user's account used.
+			  var email = error.email;
+			  // The firebase.auth.AuthCredential type that was used.
+			  var credential = error.credential;
+			  // ...
+
+			  console.log(errorCode + " " + errorMessage + " " + email + " " + credential);
+			});
 		});
 	});
-	});
-	
-	</script>
+</script>
 </head>
 	
   <body>
-  <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  <!-- <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script> -->
 
   <a href="#" id="fblogin">FB login</a>
   	<h1>Welcome To ... </h1>
@@ -102,6 +128,5 @@ $(function() {
 				<p>Cash in on untapped potential and markets that were previously unknown!</p>
         </section>
     </div>
-    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
   </body>
 </html>
