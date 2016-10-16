@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+  	<h1>Enter message details below !</h1>
+		<form action="">
+			Title:<br>
+			<input type="text" id="title">
+			<br>
+			Duration:<br>
+			<input type="text" id="duration">
+			<br>
+			Message:<br>
+			<input type="text" id="message">
+			<br>
+			Radius:<br>
+			<input type="number" id="radius">
+			<br>
+
+		</form>
+    <button onclick="addNotification()">Add Notification</button>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+    <script>
+      var ref = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/NotificationCentre");
+      var usersRef = ref.child("Notifications");
+      function addNotification(){
+        usersRef.set({
+          alanisawesome: {
+				  "Address" : "1151 Richmond Street",
+				  "City" : "London ",
+				  "CompanyID" : "000",
+				  "CompanyName" : "HW3",
+				  "Country" : "Canada",
+				  "Duration" : document.getElementById("duration").value,
+				  "Lat" : 0,
+				  "Long" : 0,
+				  "Message" : document.getElementById("message").value,
+				  "Radius" : document.getElementById("radius").value,
+				  "Title" : document.getElementById("title").value, 
+				  "Zip" : 0
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

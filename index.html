@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	
+	</head>
+	<body>
+		<h1>Notification</h1>
+		<form action="">
+			Address:<br>
+			<input type="text" id="address">
+			<br>
+			City:<br>
+			<input type="text" id="city">
+			<br>
+			Company ID:<br>
+			<input type="number" id="companyID">
+			<br>
+			Company Name:<br>
+			<input type="text" id="companyName">
+			<br>
+			Country:<br>
+			<input type="text" id="country">
+			<br>
+			Duration:<br>
+			<input type="number" id="duration">
+			<br>
+			Latitude:<br>
+			<input type="number" id="lat">
+			<br>
+			Longitude:<br>
+			<input type="number" id="long">
+			<br>
+			Message:<br>
+			<input type="text" id="message">
+			<br>
+			Radius:<br>
+			<input type="number" id="radius">
+			<br>
+			Title:<br>
+			<input type="text" id="notificationTitle">
+			<br>
+			Zip:<br>
+			<input type="text" id="zip">
+			<br>
+		</form>
+		
+
+		<button onclick="addNotification()">Submit Notification</button>
+		<button onclick="addCompany()">Register Company</button>
+		<script>
+		  var refNotificationCentre = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/Noti");
+		  function addNotification(){
+			refNotificationCentre.set({
+			  test: {
+				  "Address" : "1151 Richmond Street",
+				  "City" : "London ",
+				  "CompanyID" : "000",
+				  "CompanyName" : "HW3",
+				  "Country" : "Canada",
+				  "Duration" : 1,
+				  "Lat" : 43.008599,
+				  "Long" : -81.276169,
+				  "Message" : "Test",
+				  "Radius" : 1000,
+				  "Zip" : "N6K2A5"
+			  }
+			});
+		  }
+		</script >
+		<script>
+		  function addCompany(){
+		  var refHub = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/Hub");
+			refHub.set({
+			  test10: {
+				  "Address" : document.getElementById("address").value,
+				  "City" : document.getElementById("city").value,
+				  "CompanyID" : "000",
+				  "Country" : "Canada",
+				  "FBToken " : 1,
+				  "FirstName" : "AJ",
+				  "LastName" : "Test",
+				  "Lat" : 43.008599,
+				  "Long" : -81.276169,
+				  "Name" : "HW3",
+				  "Phone" : 911,
+				  "SubLevel" : 4,
+				  "Zip" : "N6K2A5"
+			  }
+			});
+		  }
+		</script>
+		<script type="text/javascript" src="app.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+	</body>

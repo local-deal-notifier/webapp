@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+  	<h1>Please Enter fill out the details below </h1>
+		<form action="">
+			First Name:<br>
+			<input type="text" id="firstname">
+			<br>
+			Last Name:<br>
+			<input type="text" id="lastname">
+			<br>
+			Company Name:<br>
+			<input type="text" id="company">
+			<br>
+			Email:<br>
+			<input type="text" id="email">
+			<br>
+			Phone:<br>
+			<input type="text" id="phone">
+			<br>
+			Address:<br>
+			<input type="text" id="address">
+			<br>
+			City:<br>
+			<input type="text" id="city">
+			<br>
+			Country:<br>
+			<input type="text" id="country">
+			<br>
+			Latitude:<br>
+			<input type="number" id="lat">
+			<br>
+			Longitude:<br>
+			<input type="number" id="long">
+			<br>
+			Zip:<br>
+			<input type="text" id="zip">
+			<br>
+			SubLevel:<br>
+			<input type="number" id="sublevel">
+			<br>
+		</form>
+		
+	<button onclick="addCompany()">Register Company</button>
+    <script>
+	  function addCompany(){
+		  var refHub = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/Hub");
+			refHub.set({
+			  test10: {
+				  "Address" : document.getElementById("address").value,
+				  "City" : document.getElementById("city").value,
+				  "CompanyID" : "000",
+				  "CompanyName" : document.getElementById("company").value,
+				  "Country" : document.getElementById("country").value,
+				  "Country" : document.getElementById("email").value,
+				  "FBToken " : 1,
+				  "FirstName" : document.getElementById("firstname").value,
+				  "LastName" :  document.getElementById("lastname").value,
+				  "Lat" : document.getElementById("lat").value,
+				  "Long" : document.getElementById("long").value,
+				  "Phone" : document.getElementById("phone").value,
+				  "SubLevel" : document.getElementById("sublevel").value,
+				  "Zip" : document.getElementById("zip").value,
+			  }
+			});
+		  }
+    </script>
+	    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  </body>
+</html>
