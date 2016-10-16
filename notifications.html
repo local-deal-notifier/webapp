@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-  </head>
+<style type="text/css"> 
+h1{
+	text-align: center;
+}
+h1{
+	text-align: center;
+}
+.center{
+	text-align: center;
+}
+button{
+	input-align: center;
+}
+</style>
   <body>
   	<h1>Enter message details below !</h1>
 		<form action="">
-			Title:<br>
-			<input type="text" id="title">
-			<br>
-			Duration:<br>
-			<input type="text" id="duration">
-			<br>
-			Message:<br>
-			<input type="text" id="message">
-			<br>
-			Radius:<br>
-			<input type="number" id="radius">
-			<br>
-
+			<div class="center">
+				Title:<br>
+				<input type="text" id="title">
+				<br>
+				Duration:<br>
+				<input type="text" id="duration">
+				<br>
+				Message:<br>
+				<input type="text" id="message">
+				<br>
+				Radius:<br>
+				<input type="number" id="radius">
+				<br><br>
+			</div>
 		</form>
-    <button onclick="addNotification()">Add Notification</button>
-    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+		<div class="center">
+			<button onclick="addNotification()">Add Notification</button>
+		</div>
+		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <script>
       var ref = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/NotificationCentre");
       var usersRef = ref.child("Notifications");
@@ -44,5 +58,6 @@
         });
       }
     </script>
+	
   </body>
 </html>

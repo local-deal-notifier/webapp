@@ -1,13 +1,79 @@
 <!DOCTYPE html>
 <html>
+<style type="text/css"> 
+
+h1{
+	text-align: center;
+}
+h3 {
+    line-height: 110%;
+    padding: 5% 0;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+p {
+    padding: 1%;
+	text-align: center;
+}
+img {
+    max-width: 100%;
+    height: auto;
+	img-align: center;
+}
+.one-third {
+    width: 28%;
+    float: left;
+    margin: 2% 0 3% 4;
+    text-align: center;
+}
+.center {
+	text-align: center;
+}
+#banner-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+	img-align: center;
+}
+p {
+    padding: 2%;
+    color: #4A4444;
+    text-align: justify;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-align: center;
+}
+/*-----------------------------------MEDIA!!!--------------------------*/
+@media screen and (max-width: 478px) {
+    body {
+        position: absolute;
+    }
+}
+</style>
   <head>
 
   </head>
   <body>
   	<h1>Welcome To ... </h1>
 	<p> Connect with your customers in a new effective way! Send a message or register today!  </p>
-    <button onclick="window.location.href='C:\Users/AJ/Desktop/HW3/notifications.html'">Add Notification</button>
-	<button onclick="window.location.href='C:\Users/AJ/Desktop/HW3/register.html'">Register Company</button>
+	<div class="center">
+		<button onclick="window.location.href='C:\Users/AJ/Desktop/HW3/notifications.html'">Add Notification</button>
+		<button onclick="window.location.href='C:\Users/AJ/Desktop/HW3/register.html'">Register Company</button>
+	</div>
+	<div  id="banner-wrapper">
+        <section class="one-third">
+            <img src="C:\Users\AJ\Desktop\HW3\pics\target.jpg">
+				<h3>Target</h3>
+				<p>Easily and effectively engage nearby clients with your promos, deals or events!</p>
+        </section>
+        <section class="one-third">
+            <img src="C:\Users\AJ\Desktop\HW3\pics\data.jpg">
+				<h3>Data</h3>
+				<p>Collect, organize and analyze to learn about your cliental and improve your business model!</p>
+        </section>
+        <section class="one-third">
+            <img src="C:\Users\AJ\Desktop\HW3\pics\money.png">
+				<h3>Monetize</h3>
+				<p>Cash in on untapped potential and markets that were previously unknown!</p>
+        </section>
+    </div>
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
   </body>
 </html>
