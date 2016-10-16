@@ -58,7 +58,7 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user){
 	if(error){
 		console.log(error);
 	}else if (user){
-		console.log('User ID': + user.uid)
+		console.log('User ID: ' + user.uid);
 	}else{
 		console.log("not logged in");
 	}
@@ -66,7 +66,7 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user){
 $(function() {
 	$("#fblogin").click(function(){
 		auth.login('facebook',{
-		rememberMe: true;
+		rememberMe: true,
 		scope: 'email,user_likes'
 		});
 	});
