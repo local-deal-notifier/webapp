@@ -38,10 +38,10 @@ button{
 		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <script>
       var ref = new Firebase("https://hackwestern3-2ebd2.firebaseio.com/NotificationCentre");
-      var usersRef = ref.child("Notifications");
+      var usersRef = ref.child("key");
       function addNotification(){
         usersRef.set({
-          alanisawesome: {
+          company: {
 				  "Address" : "1151 Richmond Street",
 				  "City" : "London ",
 				  "CompanyID" : "000",
